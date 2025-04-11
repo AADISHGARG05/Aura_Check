@@ -1,0 +1,83 @@
+body {
+    background-color: #f3e5f5; /* Light lavender for a calming background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Modern and clean font */
+    position: relative;
+    overflow: hidden; /* Hide decorative element overflow */
+  }
+  
+  .stres {
+    font-size: 48px; /* Larger size for emphasis */
+    color: #6a1b9a; /* Deep purple for a bold look */
+    text-align: center;
+    margin-bottom: 30px; /* Space below the heading */
+    font-weight: 700; /* Extra bold font weight */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  }
+  
+  .button {
+    background-color: #ab47bc; /* Light purple for the button */
+    color: white; /* White text for contrast */
+    border: none;
+    border-radius: 12px; /* Slightly rounded corners */
+    padding: 20px 40px; /* Larger padding for a prominent button */
+    font-size: 20px; /* Larger font size */
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .button a {
+    color: white; /* Ensure the link inherits the button's text color */
+    text-decoration: none; /* Remove underline from the link */
+  }
+  
+  .button:hover {
+    background-color: #9c27b0; /* Slightly darker purple on hover */
+    transform: scale(1.1); /* More noticeable zoom-in effect */
+  }
+  
+  /* Decorative Elements */
+  .decorative-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(171, 71, 188, 0.3); /* Transparent light purple */
+    animation: float 6s infinite ease-in-out;
+  }
+  
+  .circle1 {
+    width: 150px;
+    height: 150px;
+    top: 10%;
+    left: 15%;
+  }
+  
+  .circle2 {
+    width: 200px;
+    height: 200px;
+    bottom: 10%;
+    right: 20%;
+  }
+  
+  .circle3 {
+    width: 100px;
+    height: 100px;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  

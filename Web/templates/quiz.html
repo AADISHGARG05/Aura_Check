@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static\css\quiz-css.css">
+    <title>Stress Score Quiz</title>
+</head>
+<body>
+    
+
+
+    <div class="level">
+        <h1 class="stres">Stress Score Quiz</h1>
+        <button id="startQuizBtn" class="button">
+          <a href="https://forms.office.com/r/YyrrV7SUKs?origin=lprLink" target="_blank">Take the Quiz</a>
+        </button>
+        <button id=""startQuizBtn class="button" onclick="window.location.href='/predict'">
+          Stress Score
+        </button>
+      </div>
+      
+      {% if result %}
+        <p>Your stress prediction score is: <strong>{{ result }}</strong></p>
+      {% else %}
+        <p>No prediction result available.</p>
+      {% endif %}
+
+      <div class="decorative-circle circle1"></div>
+      <div class="decorative-circle circle2"></div>
+      <div class="decorative-circle circle3"></div>
+</body>
+</html>

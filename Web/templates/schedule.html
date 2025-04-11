@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Reminder Scheduler</title>
+    <link rel="stylesheet" href="static/css/schedule-css.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Schedule an Email Reminder</h2>
+        <form onsubmit="event.preventDefault(); sendDataToFlask(); scheduleReminder();">
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+        
+            <label for="message">Reminder Message:</label>
+            <textarea id="message" placeholder="Enter your reminder message" required></textarea>
+        
+            <label for="datetime">Reminder Date & Time:</label>
+            <input type="datetime-local" id="datetime" required>
+        
+            <label for="frequency">Repeat:</label>
+            <select id="frequency">
+                <option value="once">Once</option>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+            </select>
+        
+            <button type="submit">Schedule Reminder</button>
+        </form>
+
+        <div class="reminder-list">
+            <h3>Scheduled Reminders:</h3>
+            <div id="reminders"></div>
+        </div>
+    </div>
+
+    <script>
+        function scheduleReminder() {
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const datetime = document.getElementById('datetime').value;
+            const frequency = document.getElementById('frequency').value;
+            const remindersDiv = document.getElementById('reminders');
+
+            if (!email || !message || !datetime) {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            const reminderHTML = `
+                <div class="reminder">
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Message:</strong> ${message}</p>
+                    <p><strong>Scheduled for:</strong> ${new Date(datetime).toLocaleString()}</p>
+                    <p><strong>Repeats:</strong> ${frequency.charAt(0).toUpperCase() + frequency.slice(1)}</p>
+                </div>
+            `;
+            remindersDiv.innerHTML += reminderHTML;
+
+            // Save to backend (simulation)
+            const reminderData = {
+                email,
+                message,
+                datetime,
+                frequency
+            };
+            console.log("Reminder Scheduled:", reminderData);
+
+            // Clear input fields after scheduling
+            document.getElementById('email').value = "";
+            document.getElementById('message').value = "";
+            document.getElementById('datetime').value = "";
+            document.getElementById('frequency').value = "once";
+        }
+
+    function sendDataToFlask() {
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        const datetime = document.getElementById('datetime').value;
+        const frequency = document.getElementById('frequency').value;
+
+        // Make sure email, message, and datetime are filled out
+        if (!email || !message || !datetime) {
+            alert("Please fill in all fields!");
+            return;
+        }
+
+        fetch('/send', {
+            method: "POST",  // Make sure it's POST
+            headers: {
+                "Content-Type": 'application/json'  // Set the correct header
+            },
+            body: JSON.stringify({
+                email: email,
+                message: message,
+                datetime: datetime,
+                frequency: frequency
+            })
+        })
+        .then(response => response.json())  // Process response as JSON
+        .then(data => {
+            console.log("Response from Flask:", data);
+            alert("Reminder Scheduled Successfully!");
+        })
+        .catch(error => console.error("Error:", error));  // Handle errors
+    }
+        
+    </script>
+
+</body>
+</html>

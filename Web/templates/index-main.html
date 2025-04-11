@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura Check</title>
+    <link rel="icon" type="image/x-icon" href="static/img/fevicon.png?" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="static/css/style-main.css" />
+  </head>
+  <body>
+    <main>
+      <header id="header">
+        <div class="overlay overlay-lg">
+          <img
+            src="static/img/shapes/square.png"
+            class="shape square"
+            alt="square shape rawquesh"
+          />
+          <img
+            src="static/img/shapes/circle.png"
+            class="shape circle"
+            alt="circle shape rawquesh"
+          />
+          <img
+            src="static/img/shapes/half-circle.png"
+            class="shape half-circle1"
+            alt="half circle shape rawquesh"
+          />
+          <img
+            src="static/img/shapes/half-circle.png"
+            class="shape half-circle2"
+            alt="half circle shape rawquesh"
+          />
+          <img
+            src="static/img/shapes/x.png"
+            class="shape xshape"
+            alt="shapes rawquesh"
+          />
+          <img
+            src="static/img/shapes/wave.png"
+            class="shape wave wave1"
+            alt="wave shape rawquesh"
+          />
+          <img
+            src="static/img/shapes/wave.png"
+            class="shape wave wave2"
+            alt="wave shape rawquesh"
+          />
+          <img
+            src="static/img/shapes/triangle.png"
+            class="shape triangle"
+            alt="triangle shape rawquesh"
+          />
+          <img
+            src="static/img/shapes/letters.png"
+            class="letters"
+            alt="letters rawquesh"
+          />
+          <img
+            src="static/img/shapes/points1.png"
+            class="points points1"
+            alt="points rawquesh"
+          />
+        </div>
+
+        <nav>
+          <div class="container">
+            <div class="logo">
+              <img src="static/img/logo.png" alt="Logo" />
+            </div>
+
+            <div class="links">
+              <ul>
+                <li>
+                  <a href="#header">Home</a>
+                </li>
+                <li>
+                  <a href="#services">Services</a>
+                </li>
+                <li>
+                  <a href="#about">About</a>
+                </li>
+
+                <li>
+                  <a href="#testimonials">Testimonials</a>
+                </li>
+                <li>
+                  <a href="#contact">Contact Us</a>
+                </li>
+                <li>
+                  <button onclick="window.location.href='/pred'" id="but"> <a class="active"
+                    >Sign Up</a
+                  >
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Main section  -->
+
+        <div class="header-content">
+          <div class="container grid-2">
+            <div class="column-1">
+              <h1 class="header-title">Aura Check</h1>
+              <div class="text">
+                <p>Empowering individuals to understand and manage their stress effectively through a personalized, user-friendly Stress Level Analysis Tool.</p>
+                <div class="small-desc">
+                  Assess your stress levels with ease, identify triggers, and access personalized strategies for effective stress management. Track your progress over time with a user-friendly, confidential, and insightful tool.
+                </div>
+              </div>
+              <button onclick="window.location.href='/quiz'" style="border: 0; background-color: transparent;"><a target="_blank" class="btn">Try NOW</a></button>
+            </div>
+
+            <div class="column-2 image">
+              <img
+                src="static/img/shapes/points2.png"
+                class="points points2"
+                alt="points rawquesh"
+              />
+              <img
+                src="static/img/person2.png"
+                class="img-element z-index"
+                alt="main logo rawquesh"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Services section  -->
+
+      <section class="services section" id="services">
+        <div class="container">
+          <div class="section-header">
+            <h3 class="title" data-title="What We Do">Services</h3>
+            <p class="text">
+              Custom Stress Level Analysis Tool development with automated assessments, personalized coping strategies, and user-friendly design to enhance well-being and productivity.
+            </p>
+          </div>
+
+          <div class="cards">
+            <div class="card-wrap">
+              <img
+                src="static/img/shapes/points3.png"
+                class="points points1 points-sq"
+                alt="points square rawquesh"
+              />
+              <div class="card" data-card="Web">
+                <div class="card-content z-index">
+                  <img
+                    src="static/img/services/web.png"
+                    class="icon"
+                    alt="web development showcase rawquesh"
+                  />
+                  <h3 class="title-sm">Automated Stress Evaluation</h3>
+                  <p class="text">
+                    Implement automated analysis of responses to generate accurate stress level evaluations and personalized reports.
+                  </p>
+                  <button onclick="window.location.href='/quiz'" style="background-color: transparent;border: 0;"><a class="btn small"
+                    >Try NOW</a
+                  > </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-wrap">
+              <div class="card" data-card="App">
+                <div class="card-content z-index">
+                  <img
+                    src="static/img/services/android.png"
+                    class="icon"
+                    alt="android development showcase rawquesh"
+                  />
+                  <h3 class="title-sm">Progress Tracking & Reminders</h3>
+                  <p class="text">
+                    Develop systems for tracking stress levels over time and sending reminders for users to follow their coping strategies.
+                  </p>
+                  <button onclick="window.location.href='/schedule'" style="background-color: transparent;border: 0;"><a class="btn small"
+                    >Try NOW</a
+                  > </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card" data-card="iOS">
+                <div class="card-content z-index">
+                  <img
+                    src="static/img/services/ios.png"
+                    class="icon"
+                    alt="ios development showcase rawquesh"
+                  />
+                  <h3 class="title-sm">Personalized Coping Strategies</h3>
+                  <p class="text">
+                    Provide tailored coping mechanisms, including mindfulness exercises, time management tips, and physical activity suggestions.
+                    
+                  </p>
+                  <button onclick="window.location.href='/tech'" style="background-color: transparent;border: 0;"><a class="btn small"
+                    >Try NOW</a
+                  > </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card" data-card="WP">
+                <div class="card-content z-index">
+                  <img
+                    src="static/img/services/wordpress.png"
+                    class="icon"
+                    alt="wordpress showcase rawquesh"
+                  />
+                  <h3 class="title-sm"> Privacy & Data Security</h3>
+                  <p class="text">
+                    
+                    Ensure user confidentiality and secure data handling in compliance with privacy regulations.
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card" data-card="Store">
+                <div class="card-content z-index">
+                  <img
+                    src="static/img/services/online-store100.png"
+                    class="icon"
+                    alt="online store showcase rawquesh"
+                  />
+                  <h3 class="title-sm">Custom Questionnaire Development</h3>
+                  <p class="text">
+                    Design personalized stress assessment questionnaires based on established psychological models.
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="card-wrap">
+              <img
+                src="static/img/shapes/points3.png"
+                class="points points2 points-sq"
+                alt=""
+              />
+              <div class="card" data-card="DB">
+                <div class="card-content z-index">
+                  <img
+                    src="static/img/services/database.png"
+                    class="icon"
+                    alt="database Backend showcase rawquesh"
+                  />
+                  <h3 class="title-sm">Multilingual & User-Friendly Interface</h3>
+                  <p class="text">
+                    I can work with NodeJS and ExpressJS for creating REST-API,
+                    Firestore, MongoDB, and NoSQL for database
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About section -->
+
+      <section class="about section" id="about">
+        <div class="container">
+          <div class="section-header">
+            <h3 class="title" data-title="Who Are We">About Us</h3>
+          </div>
+
+          <div class="section-body grid-2">
+            <div class="column-1">
+              <h3 class="title-sm">Hello, We are Team Aura Check</h3>
+              <p class="text">
+                Our team is a passionate group of developers, designers, and mental health advocates dedicated to creating innovative solutions for stress management. We specialize in building personalized, user-friendly tools that empower individuals to assess and manage their stress levels effectively. With a focus on data-driven insights and a commitment to privacy, we strive to make mental well-being accessible to everyone. We believe in the power of technology to create healthier, more productive environments.
+              </p>
+              <div class="skills">
+                <div class="skill Flutter">
+                  <h3 class="skill-title">Aryan Manchanda</h3>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-progress="99%"></div>
+                  </div>
+                </div>
+                <div class="skill ReactJS">
+                  <h3 class="skill-title">Namish Rathy</h3>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-progress="95%"></div>
+                  </div>
+                </div>
+                <div class="skill NodeJS">
+                  <h3 class="skill-title">Aadish Garg</h3>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-progress="93%"></div>
+                  </div>
+                </div>
+                <div class="skill Laravel">
+                  <h3 class="skill-title">Shreya Rai</h3>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-progress="90%"></div>
+                  </div>
+                </div>
+                <div class="skill WordPress">
+                  <h3 class="skill-title">Vanshika Mittal</h3>
+                  <div class="skill-bar">
+                    <div class="skill-progress" data-progress="93%"></div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="column-2 image">
+              <img src="static/img/shapes/points4.png" class="points" alt="" />
+              <img src="static/img/person.png" class="z-index" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Records -->
+
+
+      <!-- Testimonials -->
+
+      <section class="testimonials section" id="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <h3 class="title" data-title="What People Say">Testimonials</h3>
+          </div>
+
+          <div class="testi-content grid-2">
+            <div class="column-1 reviews">
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide review">
+                    <i class="fas fa-quote-left quote"></i>
+                    <div class="rate">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="review-text">
+                      I absolutely loved using this tool! The questionnaire was simple and easy to follow, and the results were incredibly insightful. The personalized coping strategies were practical and tailored to my needs, helping me manage my stress more effectively. I also appreciated the reminders and progress tracking features, which kept me motivated and consistent. Overall, this tool has made a significant positive impact on my mental well-being, and I highly recommend it to anyone looking to understand and reduce their stress!
+                    </p>
+
+                    <div class="review-info">
+                      <h3 class="review-name">Khushi Tiwari</h3>
+                      <h5 class="review-job">Lawyer, AutoNation</h5>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide review">
+                    <i class="fas fa-quote-left quote"></i>
+                    <div class="rate">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="review-text">
+                      Rakesh and his team did an excellent job. I sincerely
+                      appreciate the responsiveness and design talent they
+                      applied to this project. I will work with them again and
+                      highly recommend their services.
+                    </p>
+
+                    <div class="review-info">
+                      <h3 class="review-name">Ram K.</h3>
+                      <h5 class="review-job">Lead</h5>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide review">
+                    <i class="fas fa-quote-left quote"></i>
+                    <div class="rate">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="review-text">
+                      Rakesh did a very good job in making the changes for the
+                      invoice app and we are looking forward to the next update
+                      on the app also. many thanks again.
+                    </p>
+
+                    <div class="review-info">
+                      <h3 class="review-name">Blue Touch</h3>
+                      <h5 class="review-job">company</h5>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide review">
+                    <i class="fas fa-quote-left quote"></i>
+                    <div class="rate">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="review-text">
+                      Great communication, very easy to work with, made sure all
+                      bugs had been fixed. Will definitely be using Rakesh
+                      again
+                    </p>
+
+                    <div class="review-info">
+                      <h3 class="review-name">Muskaan</h3>
+                      <h5 class="review-job">The Beverage Angels</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="review-nav swiper-button-prev">
+                  <i class="fas fa-long-arrow-alt-left"></i>
+                </div>
+                <div class="review-nav swiper-button-next">
+                  <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="column-2 image">
+              <img src="static/img/testi.svg" alt="" class="img-element" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+ 
+      <!-- Hire me -->
+
+      <section class="hireme" id="hireme">
+        <div class="container">
+          <h3 class="title">Let's talk about a project</h3>
+          <p class="text">
+            Aura Check is a modern Stress Level Analysis Tool designed to help individuals assess and manage stress effectively. Using a personalized questionnaire based on psychological models, it identifies stress triggers and provides tailored coping strategies such as mindfulness exercises, time management tips, and physical activity suggestions. The tool features a user-friendly interface, progress tracking, and reminders to promote consistent self-care practices. It also offers educational resources to enhance users' understanding of stress and mental well-being. Built with privacy and security in mind, Aura Check ensures a safe and confidential experience. With multilingual support, it caters to diverse audiences, making stress management accessible to all.
+          </p>
+          <a href="mailto:tryagain800930@gmail.com" class="btn">Join Us</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="grid-4">
+          <div class="grid-4-col footer-about">
+            <h3 class="title-sm">About</h3>
+            <p class="text">
+              Aura Check helps individuals assess their stress levels through a personalized questionnaire and provides tailored coping strategies. With a user-friendly design and focus on privacy.
+            </p>
+          </div>
+
+          <div class="grid-4-col footer-links">
+            <h3 class="title-sm">Links</h3>
+            <ul>
+              <li>
+                <a href="#services">Services</a>
+              </li>
+              <li>
+              </li>
+              <li>
+                <a href="#about">About</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="grid-4-col footer-newstletter">
+            <h3 class="title-sm">Subscribe</h3>
+            <p class="text">
+              Subscribe to us for the latest update.
+            </p>
+            <form
+              action=""
+              method="POST"
+            >
+              <div class="footer-input-wrap">
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_subject" value="Subscribe" />
+                <input
+                  required
+                  name="email"
+                  type="email"
+                  class="footer-input"
+                  placeholder="Email"
+                />
+                <button type="submit" class="input-arrow">
+                  <i class="fas fa-angle-right"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="bottom-footer">
+          <div class="copyright">
+            <p class="text">Copyright&copy;2025 All rights reserved</p>
+          </div>
+
+          <div class="followme-wrap">
+            <div class="followme">
+              <h3>Follow me</h3>
+              <span class="footer-line"></span>
+              <div class="social-media">
+                <a href="" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" target="_blank">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="back-btn-wrap">
+              <a href="#" class="back-btn">
+                <i class="fas fa-chevron-up"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/isotope.pkgd.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="static/js/app.js"></script>
+  </body>
+</html>
