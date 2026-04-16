@@ -13,7 +13,7 @@ MODELS_DIR = BASE_DIR / "models"
 SCRIPTS_DIR = BASE_DIR / "Scripts"
 
 
-with open(SCRIPTS_DIR / "onehot_columns.pkl", "rb") as f:
+with open(SCRIPTS_DIR / "onehot_columns1.pkl", "rb") as f:
     onehot_columns = pickle.load(f)
 
 
@@ -74,11 +74,19 @@ def main():
     encoded = pd.get_dummies(data)
 
 # Force exact training columns
-    encoded = encoded.reindex(columns=onehot_columns)
-    encoded = encoded.fillna(0)
+    encoded = pd.get_dummies(data)
+
+    # 🔥 Ensure ALL training columns exist
+    for col in onehot_columns:
+        if col not in encoded.columns:
+            encoded[col] = 0
+
+    # 🔥 Remove extra columns (not seen in training)
+    encoded = encoded[onehot_columns]
 
 # 🔥 CRITICAL FIX: strip pandas metadata
     encoded_np = encoded.to_numpy()
+    print(encoded_np.shape)
 
     return encoded_np
 
@@ -120,3 +128,4 @@ def predict_stress():
 
     preds = model.predict(data)
     return int(preds[-1])
+
