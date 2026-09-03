@@ -12,9 +12,6 @@ BASE_DIR = Path(__file__).resolve().parent
 MODELS_DIR = BASE_DIR / "models"
 SCRIPTS_DIR = BASE_DIR / "Scripts"
 
-model1 = pickle.load(open(MODELS_DIR / "xgc_model1_depression.pkl", "rb"))
-model2 = pickle.load(open(MODELS_DIR / "xgc_model1_anxiety.pkl", "rb"))
-model3 = pickle.load(open(MODELS_DIR / "xgc_model1_stress.pkl", "rb"))
 
 with open(SCRIPTS_DIR / "onehot_columns1.pkl", "rb") as f:
     onehot_columns = pickle.load(f)
@@ -89,6 +86,7 @@ def main():
 
 # 🔥 CRITICAL FIX: strip pandas metadata
     encoded_np = encoded.to_numpy()
+    print(encoded_np.shape)
 
     return encoded_np
 
@@ -97,24 +95,25 @@ def main():
 def predict_depression():
     data = main()
 
+    model = pickle.load(open(MODELS_DIR / "xgc_model1_depression.pkl", "rb"))
 
-    n_features = model1.n_features_in_
+    n_features = model.n_features_in_
     data = data[:, :n_features]
 
-    preds = model1.predict(data)
+    preds = model.predict(data)
     return int(preds[-1])
 
 
 def predict_anxiety():
     data = main()  # numpy array (shape: [1, 5396])
 
-    
+    model = pickle.load(open(MODELS_DIR / "xgc_model1_anxiety.pkl", "rb"))
 
     
-    n_features = model2.n_features_in_
+    n_features = model.n_features_in_
     data = data[:, :n_features]
 
-    preds = model2.predict(data)
+    preds = model.predict(data)
     return int(preds[-1])
 
 
@@ -122,11 +121,11 @@ def predict_anxiety():
 def predict_stress():
     data = main()
 
-    
+    model = pickle.load(open(MODELS_DIR / "xgc_model1_stress.pkl", "rb"))
 
-    n_features = model3.n_features_in_
+    n_features = model.n_features_in_
     data = data[:, :n_features]
 
-    preds = model3.predict(data)
+    preds = model.predict(data)
     return int(preds[-1])
 
