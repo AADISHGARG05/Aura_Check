@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Check | Assessment</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+</head>
+<body>
+<header class="topbar"><a href="{{ url_for('home') }}">Aura Check</a><span>Wellbeing assessment</span></header>
+<main class="shell">
+  <section class="intro">
+    <span class="eyebrow">Private local assessment</span>
+    <h1>Answer based on your recent experience.</h1>
+    <p>All questions are required. The analysis is educational and is not a medical diagnosis.</p>
+  </section>
+  {% if error %}<div class="error">{{ error }}</div>{% endif %}
+  <form method="post" action="{{ url_for('test') }}" id="assessmentForm">
+    <section class="form-card">
+      <div class="section-title"><span>1</span><div><h2>Stress questionnaire</h2><p>1 = Did not apply, 4 = Applied very much</p></div></div>
+      <div class="question-list">
+      {% for question in dass_questions %}
+        {% set q = 'Q' ~ loop.index ~ 'A' %}
+        <fieldset class="question"><legend><b>{{ loop.index }}.</b> {{ question }}</legend>
+          <div class="scale">
+          {% for value in [1,2,3,4] %}<label><input type="radio" name="{{ q }}" value="{{ value }}" required><span>{{ value }}</span></label>{% endfor %}
+          </div>
+        </fieldset>
+      {% endfor %}
+      </div>
+    </section>
+
+    <section class="form-card">
+      <div class="section-title"><span>2</span><div><h2>Personality indicators</h2><p>1 = Strongly disagree, 7 = Strongly agree</p></div></div>
+      <div class="question-list">
+      {% for question in tipi_questions %}
+        {% set q = 'TIPI' ~ loop.index %}
+        <fieldset class="question"><legend><b>{{ loop.index }}.</b> {{ question }}</legend>
+          <div class="scale seven">
+          {% for value in [1,2,3,4,5,6,7] %}<label><input type="radio" name="{{ q }}" value="{{ value }}" required><span>{{ value }}</span></label>{% endfor %}
+          </div>
+        </fieldset>
+      {% endfor %}
+      </div>
+    </section>
+
+    <section class="form-card">
+      <div class="section-title"><span>3</span><div><h2>Word familiarity</h2><p>Select Yes only when the word is familiar.</p></div></div>
+      <div class="word-grid">
+      {% for word in vcl_words %}
+        <div class="word"><span>{{ word }}</span><label><input type="radio" name="VCL{{ loop.index }}" value="1" required> Yes</label><label><input type="radio" name="VCL{{ loop.index }}" value="0" required> No</label></div>
+      {% endfor %}
+      </div>
+    </section>
+
+    <section class="form-card">
+      <div class="section-title"><span>4</span><div><h2>Additional inputs</h2><p>Used to align the submission with the trained feature schema.</p></div></div>
+      <div class="fields">
+        <label>Age<input type="number" name="age" min="13" max="100" value="21" required></label>
+        <label>Education<select name="education" required><option value="1">Less than high school</option><option value="2">High school</option><option value="3" selected>University</option><option value="4">Graduate degree</option></select></label>
+        <label>Area<select name="urban" required><option value="1">Rural</option><option value="2" selected>Suburban</option><option value="3">Urban</option></select></label>
+        <label>Native English<select name="engnat" required><option value="1" selected>Yes</option><option value="2">No</option></select></label>
+        <label>Dominant hand<select name="hand" required><option value="1" selected>Right</option><option value="2">Left</option><option value="3">Both</option></select></label>
+        <label>Family size<input type="number" name="familysize" min="1" max="30" value="4" required></label>
+        <label>Major or field of study<input type="text" name="major" value="Computer Science"></label>
+      </div>
+      <input type="hidden" name="gender" value="3"><input type="hidden" name="religion" value="12"><input type="hidden" name="orientation" value="1"><input type="hidden" name="race" value="10"><input type="hidden" name="voted" value="2"><input type="hidden" name="married" value="1">
+    </section>
+
+    <div class="submit-bar"><div><strong>Ready to analyze?</strong><p>Review the responses before submitting.</p></div><button type="submit">Generate My Results</button></div>
+  </form>
+</main>
+<script>document.getElementById('assessmentForm').addEventListener('submit', function(){const b=this.querySelector('button[type=submit]');b.disabled=true;b.textContent='Analyzing...';});</script>
+</body>
+</html>

@@ -1,10 +1,7 @@
-flask
-flask-restful
-flask-cors
+Flask
+Flask-Cors
 gunicorn
 pandas
 numpy
 scikit-learn
 xgboost
-requests
-openpyxl

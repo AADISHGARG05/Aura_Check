@@ -3,111 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aura Check wellbeing analysis results">
     <title>Aura Check | Analysis Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav class="topbar">
+        <a class="brand" href="{{ url_for('home') }}">
+            <span class="brand-mark">A</span>
+            <span>Aura Check</span>
+        </a>
+        <span class="topbar-label">Analysis complete</span>
+    </nav>
 
-    <header class="results-header">
-        <div class="container">
-            <h1>Aura Check – Stress Analysis Result</h1>
-            <p class="subtitle">AI-generated insights based on your questionnaire responses</p>
-            <hr class="header-divider">
-        </div>
-    </header>
+    <main class="page-shell">
+        {% if error %}
+        <section class="error-card">
+            <div class="error-icon">!</div>
+            <span class="eyebrow">Unable to complete analysis</span>
+            <h1>Something interrupted the prediction.</h1>
+            <p>{{ error }}</p>
+            <a href="{{ url_for('test') }}" class="btn btn-primary">Return to Assessment <span>→</span></a>
+        </section>
+        {% else %}
+        <header class="result-hero">
+            <div>
+                <span class="eyebrow">Your Aura Check result</span>
+                <h1>Your wellbeing indicators are ready.</h1>
+                <p>A model-generated snapshot based on the responses submitted in this assessment.</p>
+            </div>
+            <div class="completion-badge">
+                <span class="check">✓</span>
+                <div><strong>Analysis complete</strong><small>3 indicators generated</small></div>
+            </div>
+        </header>
 
-    <main class="container">
-        
-        <section class="result-summary">
-            <div class="summary-card {{ severity_class }}">
-                <h2 class="severity-text">Stress Level: {{ stress }}</h2>
-                <p>This result reflects patterns detected by the trained machine learning model based on your current inputs.</p>
+        <section class="primary-result {{ severity_class }}">
+            <div class="primary-copy">
+                <span class="result-label">Primary indicator</span>
+                <h2>Stress level</h2>
+                <p>The model identified a <strong>{{ stress|lower }}</strong> stress indicator from the submitted response pattern.</p>
+            </div>
+            <div class="score-orb">
+                <span>{{ stress }}</span>
+                <small>Stress</small>
             </div>
         </section>
 
-        <section class="detailed-breakdown">
-            <div class="grid-three">
-                <div class="metric-card">
-                    <h3>Stress</h3>
-                    <div class="metric-value">{{ stress }}</div>
-                    <p>Analysis indicates elevated physiological tension markers.</p>
+        <section class="metric-grid">
+            <article class="metric-card {{ 'low' if stress == 'Low' else 'moderate' if stress == 'Moderate' else 'high' }}">
+                <div class="metric-top"><span class="metric-icon">S</span><span class="status-pill">{{ stress }}</span></div>
+                <h3>Stress</h3>
+                <p>Indicator generated from the questionnaire response pattern.</p>
+            </article>
+            <article class="metric-card {{ 'low' if anxiety == 'Low' else 'moderate' if anxiety == 'Moderate' else 'high' }}">
+                <div class="metric-top"><span class="metric-icon">A</span><span class="status-pill">{{ anxiety }}</span></div>
+                <h3>Anxiety</h3>
+                <p>Indicator generated from the questionnaire response pattern.</p>
+            </article>
+            <article class="metric-card {{ 'low' if depression == 'Low' else 'moderate' if depression == 'Moderate' else 'high' }}">
+                <div class="metric-top"><span class="metric-icon">D</span><span class="status-pill">{{ depression }}</span></div>
+                <h3>Depression</h3>
+                <p>Indicator generated from the questionnaire response pattern.</p>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="insight-card">
+                <span class="section-kicker">Interpretation</span>
+                <h2>Use this result as a reflection point.</h2>
+                <p>These indicators represent a data-driven snapshot of the current responses. Results may be influenced by recent experiences and self-reported inputs.</p>
+                <div class="notice">
+                    <span>i</span>
+                    <p><strong>Educational use only.</strong> Aura Check does not provide a medical diagnosis or clinical evaluation.</p>
                 </div>
-                <div class="metric-card">
-                    <h3>Anxiety</h3>
-                    <div class="metric-value">{{ anxiety }}</div>
-                    <p>Minimal indicators of persistent cognitive apprehension.</p>
-                </div>
-                <div class="metric-card">
-                    <h3>Depression</h3>
-                    <div class="metric-value">{{ depression }}</div>
-                    <p>Response patterns align with baseline mood indicators.</p>
-                </div>
+            </article>
+
+            <article class="process-card">
+                <span class="section-kicker">How it worked</span>
+                <h2>Direct, local prediction flow</h2>
+                <ol class="process-list">
+                    <li><span>01</span><p>Responses validated and converted to numerical inputs.</p></li>
+                    <li><span>02</span><p>Derived indicators and feature engineering applied.</p></li>
+                    <li><span>03</span><p>Inputs aligned to the trained model schema.</p></li>
+                    <li><span>04</span><p>Three XGBoost models generated the output.</p></li>
+                </ol>
+            </article>
+        </section>
+
+        <section class="transparency-card">
+            <div>
+                <span class="section-kicker">Model transparency</span>
+                <h2>What generated this result</h2>
+            </div>
+            <div class="facts">
+                <div><small>Architecture</small><strong>XGBoost</strong></div>
+                <div><small>Input</small><strong>Structured survey</strong></div>
+                <div><small>Output</small><strong>3 indicators</strong></div>
+                <div><small>Account</small><strong>Not required</strong></div>
             </div>
         </section>
 
-        <section class="guidance">
-            <div class="text-block">
-                <h3>Interpretation</h3>
-                <p>These results represent a data-driven snapshot of your responses. While the model identifies certain indicators of stress, these patterns can be influenced by transient environmental factors or recent events. We encourage using these insights as a tool for self-reflection and proactive wellness management.</p>
-                <p class="disclaimer"><strong>Note:</strong> This analysis is for educational purposes only and does not constitute a medical diagnosis or clinical evaluation.</p>
-            </div>
-        </section>
-
-        <section class="explainability">
-            <h3 class="section-title">How the AI Made This Prediction</h3>
-            <div class="pipeline">
-                <div class="pipeline-step">
-                    <span class="step-num">01</span>
-                    <p>Questionnaire responses converted into numerical features.</p>
-                </div>
-                <div class="pipeline-step">
-                    <span class="step-num">02</span>
-                    <p>Feature engineering applied to calculate weighted indicators.</p>
-                </div>
-                <div class="pipeline-step">
-                    <span class="step-num">03</span>
-                    <p>Data aligned to training schema for model compatibility.</p>
-                </div>
-                <div class="pipeline-step">
-                    <span class="step-num">04</span>
-                    <p>XGBoost gradient boosting models used for multi-output prediction.</p>
-                </div>
-                <div class="pipeline-step">
-                    <span class="step-num">05</span>
-                    <p>Statistical outputs mapped to validated stress indicators.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="transparency">
-            <h3 class="section-title">Model & Data Transparency</h3>
-            <div class="transparency-grid">
-                <div class="info-item">
-                    <strong>Model Architecture</strong>
-                    <p>XGBoost (Extreme Gradient Boosting)</p>
-                </div>
-                <div class="info-item">
-                    <strong>Input Framework</strong>
-                    <p>Structured Psychological Survey Data</p>
-                </div>
-                <div class="info-item">
-                    <strong>Data Privacy</strong>
-                    <p>No PII (Personally Identifiable Information) stored.</p>
-                </div>
-                <div class="info-item">
-                    <strong>Limitations</strong>
-                    <p>Dependent on self-reported data; represents a single snapshot in time.</p>
-                </div>
-            </div>
-        </section>
-
-        <footer class="action-footer">
-            <a href="/" class="btn btn-secondary">Back to Home</a>
-            <a href="https://forms.office.com/r/YyrrV7SUKs" class="btn btn-outline">Retake Analysis</a>
+        <footer class="actions">
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a>
+            <a href="{{ url_for('test') }}" class="btn btn-primary">Retake Assessment <span>→</span></a>
         </footer>
-
+        {% endif %}
     </main>
-
 </body>
 </html>

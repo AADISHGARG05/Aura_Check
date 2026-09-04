@@ -1,109 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Check | AI-Powered Stress Analysis</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Check | AI-Powered Stress Analysis</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-
-    <header class="hero">
-        <div class="container">
-            <h1>Aura Check</h1>
-            <h2>AI-Powered Stress Level Analysis Platform</h2>
-            <p>Understand your stress levels using machine-learning models trained on real psychological survey data.</p>
-            <a href="https://forms.office.com/r/YyrrV7SUKs" target="_blank" class="cta-button">Take Stress Analysis</a>
+  <main class="hero">
+    <div class="container hero-grid">
+      <section class="hero-copy">
+        <span class="eyebrow">AI-powered wellbeing insights</span>
+        <h1>Understand your wellbeing patterns with <span>clarity.</span></h1>
+        <p class="hero-text">Complete the questionnaire directly in Aura Check and receive stress, anxiety and depression indicators from the trained models.</p>
+        <div class="hero-actions">
+          <a href="{{ url_for('test') }}" class="btn btn-primary">Start My Assessment <span>→</span></a>
         </div>
-    </header>
-
-    <section class="about">
-        <div class="container grid">
-            <div class="about-text">
-                <h3>What is Aura Check?</h3>
-                <p>Aura Check is not a quiz; it is an AI-driven analysis system. Predictions are based on structured survey responses processed through advanced algorithms.</p>
-                <p><strong>Aura Check is designed as a demonstration of how machine learning can be used to analyze mental health indicators in a responsible, privacy-first way.</strong></p>
-            </div>
-            <div class="about-visual">
-                <div class="glass-card">AI Analysis Engine</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="how-it-works">
-        <div class="container">
-            <h3 class="section-title">How It Works</h3>
-            <div class="flow">
-                <div class="step">
-                    <div class="icon">1</div>
-                    <p>User fills out a structured stress questionnaire (Microsoft Form)</p>
-                </div>
-                <div class="step">
-                    <div class="icon">2</div>
-                    <p>Responses are securely collected</p>
-                </div>
-                <div class="step">
-                    <div class="icon">3</div>
-                    <p>Data is processed using feature engineering</p>
-                </div>
-                <div class="step">
-                    <div class="icon">4</div>
-                    <p>Trained ML models analyze stress patterns</p>
-                </div>
-                <div class="step">
-                    <div class="icon">5</div>
-                    <p>A stress analysis report is generated</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="tech-stack">
-        <div class="container">
-            <h3 class="section-title">Technology Stack</h3>
-            <div class="tech-grid">
-                <div class="tech-card">Python</div>
-                <div class="tech-card">Flask</div>
-                <div class="tech-card">Machine Learning</div>
-                <div class="tech-card">XGBoost</div>
-                <div class="tech-card">Pandas & NumPy</div>
-                <div class="tech-card">Microsoft Forms</div>
-                <div class="tech-card">REST APIs</div>
-                <div class="tech-card">Cloud Deployment</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features">
-        <div class="container">
-            <h3 class="section-title">Why This Project is Different</h3>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h4>Privacy-First</h4>
-                    <p>No user accounts or identity storage.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Real ML Models</h4>
-                    <p>Built on predictive algorithms, not simple if-else rules.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Explainability</h4>
-                    <p>Focus on transparent, data-backed predictions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p><strong>Aura Check</strong></p>
-            <p>Built for learning, research, and AI system demonstration</p>
-            <div class="footer-links">
-                <a href="#">GitHub</a>
-            </div>
-        </div>
-    </footer>
-
+        <p class="action-note">No Microsoft Forms, no external account and no separate score button.</p>
+      </section>
+      <aside class="hero-panel">
+        <div class="panel-top"><span class="status-dot"></span><span>Direct analysis workflow</span></div>
+        <div class="workflow-item"><span class="workflow-number">01</span><div><h2>Answer</h2><p>Complete the structured questionnaire.</p></div></div>
+        <div class="workflow-item"><span class="workflow-number">02</span><div><h2>Process</h2><p>Aura Check validates and aligns the inputs.</p></div></div>
+        <div class="workflow-item"><span class="workflow-number">03</span><div><h2>Analyze</h2><p>The three local models generate the result.</p></div></div>
+      </aside>
+    </div>
+  </main>
 </body>
 </html>
